@@ -79,9 +79,9 @@ export const submitEdit = e => dispatch => {
     dispatch({type: SUBMIT_EDIT, payload: e.target.id})
     axiosWithAuth()
         .put(`http://localhost:3000/requests/${e.target.id}`, {
+            username: e.target.editusername.value,
             name: e.target.editname.value,
-            age: e.target.editage.value,
-            height: e.target.editheight.value,
+            phonenumber: e.target.editphonenumber.value,
         })
         .then(res => dispatch({type: FETCH_SUCCESS, payload: res.data}))
         .catch(err =>dispatch({type: FETCH_ERROR, payload: err.response}))
