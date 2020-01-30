@@ -30,7 +30,7 @@ export const submitVolunteerForm = e => dispatch => {
     e.preventDefault()
     dispatch({ type: SUBMIT_FORM, payload: e.target})
     axiosWithAuth()
-        .post('/volunteersignup', {
+        .post('api/volunteersignup', {
             username: e.target.username.value,
             name: e.target.name.value,
             phonenumber: e.target.phonenumber.value,
