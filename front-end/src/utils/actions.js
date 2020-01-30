@@ -13,38 +13,37 @@ export const ADD_REQUEST = 'ADD_REQUEST';
 export const submitBusinessForm = e => dispatch => {
     e.preventDefault()
     dispatch({ type: SUBMIT_FORM, payload: e.target})
-    axios.post('http://localhost:3000/requests', {
-        username: e.target.username.value,
-        name: e.target.name.value,
-        address: e.target.address.value,
-        phonenumber: e.target.phonenumber.value,
-        email: e.target.email.value,
-        id: Date.now()
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-    
+    axiosWithAuth()
+        .post('api/businesssignup', {
+            username: e.target.username.value,
+            name: e.target.name.value,
+            address: e.target.address.value,
+            phonenumber: e.target.phonenumber.value,
+            email: e.target.email.value,
+            id: Date.now()
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err))     
 };
 
 export const submitVolunteerForm = e => dispatch => {
     e.preventDefault()
     dispatch({ type: SUBMIT_FORM, payload: e.target})
     axiosWithAuth()
-        .post('/requests', {
+        .post('/volunteersignup', {
             username: e.target.username.value,
             name: e.target.name.value,
             phonenumber: e.target.phonenumber.value,
             id: Date.now()
         })
         .then(res => console.log(res))
-        .catch(err => console.log(err))
-    
+        .catch(err => console.log(err)) 
 };
 
 export const fetchRequests = () => dispatch => {
     dispatch({ type: START_FETCHING })
     axiosWithAuth()
-        .get('http://localhost:3000/requests')
+        .get('api/requests')
         .then(res => dispatch({type: FETCH_SUCCESS, payload: res.data}))
         .catch(err => dispatch({type: FETCH_ERROR, payload: err.response}))
 };
