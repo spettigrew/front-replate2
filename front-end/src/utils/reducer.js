@@ -1,9 +1,11 @@
-import { SUBMIT_FORM, START_FETCHING, FETCH_ERROR, FETCH_SUCCESS, DELETE_REQUEST, BEGIN_EDIT, SUBMIT_EDIT } from "../actions";
+import { SUBMIT_BUSINESS_FORM, SUBMIT_VOLUNTEER_FORM, START_FETCHING, FETCH_ERROR, FETCH_SUCCESS, DELETE_REQUEST, BEGIN_EDIT, SUBMIT_EDIT } from "../actions";
 
 const initialState = {
   isFetching: false,
   error: "",
   requests: [],
+  businesssignup: [],
+  volunteersignup: [],
   isEditing: false
 };
 
@@ -29,15 +31,31 @@ const reducer = (state = initialState, action) => {
         error: action.payload,
         requests: [...state.requests]
       };
-    case SUBMIT_FORM:
+    case SUBMIT_BUSINESS_FORM:
       return {
         ...state,
         requests: [
-          ...state.requests,
+          ...state.businesssignup,
           {
+            username: action.payload.username.value,
             name: action.payload.name.value,
-            age: action.payload.age.value,
-            height: action.payload.height.value,
+            address: action.payload.address.value,
+            phonenumber: action.payload.phonenumber.value, 
+            email: action.payload.email.value,
+            id: Date.now()
+          }
+        ]
+      };
+
+      case SUBMIT_VOLUNTEER_FORM:
+      return {
+        ...state,
+        requests: [
+          ...state.volunteersignup,
+          {
+            username: action.payload.username.value,
+            name: action.payload.name.value,
+            phonenumber: action.payload.phonenumber.value, 
             id: Date.now()
           }
         ]
