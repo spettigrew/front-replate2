@@ -1,7 +1,7 @@
-import axios from 'axios'
+import axiosWithAuth from './axiosWithAuth';
 
-export const SUBMIT__BUSINESS_FORM = 'SUBMIT_BUSINESS_FORM';
-export const SUBMIT__VOLUNTEER_FORM = 'SUBMIT_VOLUNTEER_FORM';
+export const SUBMIT_BUSINESS_FORM = 'SUBMIT_BUSINESS_FORM';
+export const SUBMIT_VOLUNTEER_FORM = 'SUBMIT_VOLUNTEER_FORM';
 export const START_FETCHING = 'START_FETCHING';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_ERROR = 'FETCH_ERROR';
@@ -12,7 +12,7 @@ export const ADD_REQUEST = 'ADD_REQUEST';
 
 export const submitBusinessForm = e => dispatch => {
     e.preventDefault()
-    dispatch({ type: SUBMIT_FORM, payload: e.target})
+    dispatch({ type: SUBMIT_BUSINESS_FORM, payload: e.target})
     axiosWithAuth()
         .post('api/businesssignup', {
             username: e.target.username.value,
@@ -28,7 +28,7 @@ export const submitBusinessForm = e => dispatch => {
 
 export const submitVolunteerForm = e => dispatch => {
     e.preventDefault()
-    dispatch({ type: SUBMIT_FORM, payload: e.target})
+    dispatch({ type: SUBMIT_VOLUNTEER_FORM, payload: e.target})
     axiosWithAuth()
         .post('api/volunteersignup', {
             username: e.target.username.value,
@@ -48,7 +48,7 @@ export const fetchRequests = () => dispatch => {
         .catch(err => dispatch({type: FETCH_ERROR, payload: err.response}))
 };
 
-export const addRequest = () => dispatch => {
+export const addRequest = e => dispatch => {
     e.preventDefault();
     dispatch({ type: ADD_REQUEST, payload: e.target})
     axiosWithAuth()

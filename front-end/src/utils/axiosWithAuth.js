@@ -4,7 +4,7 @@ import axios from 'axios';
 // baseURL
 // headers object -> authorization header with the token
 
-export const axiosWithAuth = () => {
+    const axiosWithAuth = () => {
 
     const token = localStorage.getItem('token');
     
@@ -17,3 +17,5 @@ export const axiosWithAuth = () => {
         }
     });
 };
+
+export default axiosWithAuth;
