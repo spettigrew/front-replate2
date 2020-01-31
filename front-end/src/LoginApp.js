@@ -6,7 +6,7 @@ function LoginApp() {
   return (
     <main>
       <nav>
-        <p>The "logo" will be here</p>
+        <p className="future-image">The "logo" will be here</p>
         <h1>Replate</h1>
         <h2>Logins</h2>
       </nav>

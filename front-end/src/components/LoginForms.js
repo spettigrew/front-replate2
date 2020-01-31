@@ -10,9 +10,9 @@ const LoginForms = () =>{
 
   return (
     <div className="login-page">
-      <div classname="login-card">
+      <Card>
+        <CardBody>
         <CardHeader tag="h3">Business Login</CardHeader >
-        <CardBody>
             <Form>
               <FormGroup>
                 <Label for="email" hidden>Email </Label>
@@ -27,10 +27,10 @@ const LoginForms = () =>{
               <Button>Log in</Button>
           </Form>
         </CardBody>
-        </div>
-        <div classname="login-card">
+        </Card>
+        <Card>
+        <CardBody>
         <CardHeader tag="h3">Volunteer Login</CardHeader >
-        <CardBody>
             <Form>
               <FormGroup>
                 <Label for="email" hidden>Email </Label>
@@ -45,7 +45,7 @@ const LoginForms = () =>{
               <Button>Log in</Button>
           </Form>
         </CardBody>
-        </div>
+        </Card>
       </div>
   );
 }

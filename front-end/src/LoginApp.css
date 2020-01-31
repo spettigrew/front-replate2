@@ -36,7 +36,21 @@
     transform: rotate(360deg);
   }
 }
-
-.login-card{
-  border: 2px solid hotpink;
+main{
+  width: 90%;
+  margin: 10px 5%;
+}
+main nav{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  margin-bottom: 20px;
+}
+.future-image{
+  border: 1px solid hotpink;
+  padding: 30px;
+}
+ .login-page{
+  display: flex;
+  justify-content: space-around;
 }
