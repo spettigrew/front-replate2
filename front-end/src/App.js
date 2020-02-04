@@ -1,7 +1,7 @@
 import React from "react";
-import "./App.css";
-import RequestsCard from "./components/RequestsCard";
-import Requests from "./components/Requests";
+import "./css/App.css";
+import RequestsCard from "./components/Requests/RequestsCard";
+import LoginForms from "./components/LoginForms";
 
 function App() {
  return (
@@ -12,6 +12,7 @@ function App() {
     <h2>Logins</h2>
    </nav>
    <LoginForms />
+   <RequestsCard />
   </main>
  );
 }
