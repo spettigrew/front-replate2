@@ -1,7 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
+import axios from "axios";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const VolunteerRegister = () =>{
+
+  useEffect(()=>{
+    axios
+    .get("https://dashboard.heroku.com/apps/replate2")
+    .then(res =>{
+      console.log(res);
+    })
+    .catch(err =>{
+      console.log(err);
+    })
+  })
 
   return (
     <div>

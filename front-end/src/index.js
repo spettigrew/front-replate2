@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import VolunteerRegisterApp from './VolunteerRegisterApp';
+import VolunteerRegisterApp from './VolunteerRegisterApp/VolunteerRegisterApp.js';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<VolunteerRegisterApp />, document.getElementById('root'));

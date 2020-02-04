@@ -1,6 +1,6 @@
 import React from 'react';
 import './VolunteerRegisterApp.css';
-import VolunteerRegister from "./components/VRegisterForm.js";
+import VolunteerRegister from "../components/VRegisterForm.js";
 
 function VolunteerRegisterApp() {
   return (
