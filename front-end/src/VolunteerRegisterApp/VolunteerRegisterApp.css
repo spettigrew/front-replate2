@@ -25,7 +25,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: white;
 }
 
 @keyframes App-logo-spin {
@@ -37,6 +37,7 @@
   }
 }
 
+<<<<<<< HEAD:front-end/src/App.css
 button {
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
@@ -111,3 +112,10 @@ button {
     flex-direction: column;
     justify-content: flex-start;
   }
+=======
+.volunteer-register-form{
+  width: 90%;
+  margin-left: 5%;
+  border: 1px solid hotpink;
+}
+>>>>>>> bd7f60f63c1989eb0493a23710c35f3c6916d677:front-end/src/VolunteerRegisterApp/VolunteerRegisterApp.css
