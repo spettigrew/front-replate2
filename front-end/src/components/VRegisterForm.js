@@ -1,9 +1,10 @@
 import React, {useEffect} from "react";
+import axios from "axios";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const VolunteerRegister = () =>{
 
-/*  useEffect(()=>{
+  useEffect(()=>{
     axios
     .get("https://dashboard.heroku.com/apps/replate2")
     .then(res =>{
@@ -12,23 +13,16 @@ const VolunteerRegister = () =>{
     .catch(err =>{
       console.log(err);
     })
-  }) */
-
-  useEffect(()=>{
-    fetch('https://replate2.herokuapp.com/')
-    .then(res => res.json())
-    .then(json => console.log(json.message))
   })
 
   return (
     <div>
-    <h1>Volunteer Registration Form</h1>
+    <h1>This is inside the VRegisterForm.js</h1>
+    <p>
+      If you're insterested in becoming a volunteer for Replate2, please fill out the form below.
+    </p>
     <div className="volunteer-register-form">
     <Form>
-    <p>
-    Here at Replate2 we aim to put food on the plates of hungry people. If you're interested in becoming a volunteer to take food from restaurants to clients,
-    sign up here!
-    </p>
       <Row form>
         <Col md={6}>
           <FormGroup>

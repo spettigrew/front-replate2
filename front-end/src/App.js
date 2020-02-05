@@ -7,9 +7,6 @@ function App() {
  return (
   <main>
    <nav>
-    <p className="future-image">The "logo" will be here</p>
-    <h1>Replate</h1>
-    <h2>Logins</h2>
    </nav>
    <LoginForms />
    <RequestsCard />

@@ -63,16 +63,18 @@ input {
 label {
  font-family: Verdana;
  font-weight: bold;
- font-size: 15px;
+ font-size: 1rem;
 }
 
 form {
  display: flex;
  flex-direction: column;
  justify-content: flex-start;
-}
-.volunteer-register-form {
- width: 90%;
- margin-left: 5%;
- border: 1px solid hotpink;
+ border: 2px solid #64615C;
+ border-radius: 25px;
+ width: 70%;
+ padding: 15px;
+ margin-left: 15%;
+ margin-bottom: 20px;
+ background: lightgray;
 }
