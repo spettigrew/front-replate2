@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "react-moment": "^0.9.7",
+    "react-router-dom": "^5.1.2",
+    "redux-devtools-extension": "^2.13.8"
+  }
+}
