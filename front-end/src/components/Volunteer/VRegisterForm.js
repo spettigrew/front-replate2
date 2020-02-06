@@ -1,5 +1,7 @@
 import React, {useEffect} from "react";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import {useForm} from "react-hook-form";
+
 
 const VolunteerRegister = () =>{
 
@@ -14,17 +16,47 @@ const VolunteerRegister = () =>{
     })
   }) */
 
+  const validationState = {
+    emailError: "A valid e-mail is required",
+    passwordError: "A password is required",
+    address2: "",
+    cityError: "city name is required",
+    stateError: "required",
+    zipError: "required",
+
+  };
+
   useEffect(()=>{
     fetch('https://replate2.herokuapp.com/')
     .then(res => res.json())
     .then(json => console.log(json.message))
   })
 
+  const validate = () =>{
+    let emailError = "";
+    let passwordError = "";
+    let cityError = "";
+    let stateError = "";
+    let zipError = "";
+
+    if (validationState.email.included("@")){
+      emailError = "this isn't even an email"
+    }
+  }
+
+  const handleSubmit = e =>{
+    e.preventDefault();
+    const isValid = validate();
+    if(isValid) {
+      console.log(validationState);
+    }
+  }
+
   return (
     <div>
     <h1>Volunteer Registration Form</h1>
     <div className="volunteer-register-form">
-    <Form>
+    <Form className="vRegForm">
     <p>
     Here at Replate2 we aim to put food on the plates of hungry people. If you're interested in becoming a volunteer to take food from restaurants to clients,
     sign up here!
@@ -34,12 +66,14 @@ const VolunteerRegister = () =>{
           <FormGroup>
             <Label for="exampleEmail">Email</Label>
             <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+            {validationState.emailError}
           </FormGroup>
         </Col>
         <Col md={6}>
           <FormGroup>
             <Label for="examplePassword">Password</Label>
             <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+            {validationState.passwordError}
           </FormGroup>
         </Col>
       </Row>
@@ -81,5 +115,11 @@ const VolunteerRegister = () =>{
     </div>
   );
 }
+
+// const schema = Yup.object().shape({
+//   password: Yup
+//     .string()
+//     .required()
+// })
 
 export default VolunteerRegister;
