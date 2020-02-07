@@ -1,5 +1,6 @@
 import React from 'react'
 import {Button} from 'reactstrap'
+import BusinessForm from './Business/BusinessForm'
 export default function SignUp() {
     return (
         <div className="signup-wrapper">
@@ -12,16 +13,16 @@ export default function SignUp() {
             <div className="business-signup">
                 <h2>Business</h2>
                 <h2>Sign-Up</h2>
-                <Button color="primary">Sign Up</Button>
+                <Button onClick="buisn" color="primary">Sign Up</Button>
             </div>
             <div className="volunteer-signup">
                 <h2>Volunteer</h2>
                 <h2>Sign-Up</h2>
                 <Button color="primary">Sign Up</Button>
             </div>
-            <footer>
+            {/* <footer>
                 Copywrite Replate @ 2020
-            </footer>
+            </footer> */}
         </div>
     )
 }

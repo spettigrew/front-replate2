@@ -2,6 +2,10 @@ import React from "react";
 import "./css/App.css";
 import RequestsCard from "./components/Requests/RequestsCard";
 import LoginForms from "./components/LoginForms";
+import BusinessForm from "./components/Business/BusinessForm";
+import VolunteerRegister from "./components/Volunteer/VRegisterForm";
+import SignUp from "./components/SignUp";
+import BusinessFillForm from "./components/Business/BusinessFillForm";
 
 function App() {
  return (
@@ -12,7 +16,12 @@ function App() {
     <h2>Logins</h2>
    </nav>
    <LoginForms />
+   <SignUp />
    <RequestsCard />
+   <BusinessForm />
+   <VolunteerRegister />
+   <BusinessFillForm />
+   
   </main>
  );
 }
