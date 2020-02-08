@@ -28,6 +28,7 @@ export default function BusinessFillForm() {
                       name="description"
                       ref={register({ required: true, maxLength: 500})}
                     />
+                    {errors.description && <h7 className="required">This field is required</h7>}
                 <label className="servings-label">
                 Please pick the amount of servings
                 <select> 
@@ -58,11 +59,13 @@ export default function BusinessFillForm() {
                 <option value="25serving">25 Servings</option> 
                 </select>
                 </label>
+                
                 <label className="time-label">Please choose a date and time for pickup</label>
                     <input type="datetime-local"
                       name="date"
                       ref={register({ required: true, maxLength: 20})}
                     />
+                    {errors.date && <h7 className="required">This field is required</h7>}
 
 
                 <Button color="primary">Submit</Button>

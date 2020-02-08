@@ -1,14 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {Button} from 'reactstrap';
 import axios from 'axios';
-import {string, number} from "yup";
 import {useForm} from 'react-hook-form';
 
 export default function BusinessForm(props) {
     const [Data, setData] = useState([])
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [valid, setValid] = useState(false);
+    
     const {register, handleSubmit, watch, errors} = useForm()
     
 
