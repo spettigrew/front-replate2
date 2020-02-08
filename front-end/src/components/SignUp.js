@@ -20,9 +20,9 @@ export default function SignUp() {
                 <h2>Sign-Up</h2>
                 <Button color="primary">Sign Up</Button>
             </div>
-            {/* <footer>
+            <footer>
                 Copywrite Replate @ 2020
-            </footer> */}
+            </footer>
         </div>
     )
 }

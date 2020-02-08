@@ -81,6 +81,8 @@ form {
     flex-wrap: wrap;
     font-size: 30px;
     justify-content: center;
+    color: #D5B69D;
+    background-color: #081417;
   }
   .replate{
     /* width: 100%; */
@@ -97,12 +99,20 @@ form {
     width: 40%;
     font-size: 20px;
     margin: 20px;
+    color: #D5B69D;
+    background-color: #64615C;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
   }
   .volunteer-signup{
     text-align: center;
     width: 40%;
     font-size: 20px;
     margin: 20px;
+    color: #D5B69D;
+    background-color: #64615C;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
   }
   
   
@@ -182,7 +192,8 @@ form {
     align-content: space-around;
     height: 500px;
     color: #D5B69D;
-    background-color: #64615C;    width: 400px;
+    background-color: #64615C;
+    width: 400px;
   }
   
   textarea{
