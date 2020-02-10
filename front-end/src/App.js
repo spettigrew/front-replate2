@@ -7,8 +7,10 @@ import VolunteerRegisterApp from "./components/Volunteer/VolunteerRegisterApp";
 import BusinessDashboard from "./components/Business/BusinessDashboard";
 import VolunteerDashboard from "./components/Volunteer/VolunteerDashboard";
 import Requests from "./components/Requests/Requests";
-import { Route, Switch } from "react-router-dom";
-
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import SignUp from "./components/SignUp";
+import PrivateRoute from "./utils/PrivateRoute";
+import { connect } from "react-redux";
 function App() {
  return (
   <main>
@@ -16,23 +18,28 @@ function App() {
     <p className="future-image">The "logo" will be here</p>
     <h1>Replate</h1>
    </nav>
-   <Switch>
-    <Route path="/volunteer/login" render={props => <VolunteerLoginForm />} />
-    <Route path="/volunteer/home" render={props => <VolunteerDashboard />} />
-    <Route path="/business/login" render={props => <BusinessLoginForm />} />
-    <Route path="/business/home" render={props => <BusinessDashboard />} />
-    <Route path="/requests" render={props => <Requests />} />
-    <Route
-     path="/volunteer/register"
-     render={props => <VolunteerRegisterApp />}
-    />
-    <Route
-     path="/business/register"
-     render={props => <BusinessRegisterApp />}
-    />
-   </Switch>
+   <BrowserRouter>
+    <Switch>
+     <Route path="/home" render={props => <SignUp />} />
+     <Route
+      path="/business/register"
+      render={props => <BusinessRegisterApp />}
+     />
+     <Route
+      path="/volunteer/register"
+      render={props => <VolunteerRegisterApp />}
+     />
+     <Route path="/volunteer/login" render={props => <VolunteerLoginForm />} />
+     <Route path="/volunteer/home" render={props => <VolunteerDashboard />} />
+     <Route path="/business/login" render={props => <BusinessLoginForm />} />
+     <PrivateRoute
+      path="/business/home"
+      render={props => <BusinessDashboard />}
+     />
+     <PrivateRoute path="/requests" render={props => <Requests />} />
+    </Switch>
+   </BrowserRouter>
   </main>
  );
 }
-
-export default App;
+export default connect(null)(App);

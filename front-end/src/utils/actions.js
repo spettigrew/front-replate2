@@ -12,8 +12,8 @@ import axiosWithAuth from "./axiosWithAuth";
 import axios from "axios";
 
 export const getRequests = (res, err) => async dispatch => {
- axios
-  .get("https://testapi.io/api/cd765/foodrequests")
+ axiosWithAuth()
+  .get("/api/foodRequests/")
   .then(res => {
    console.log(res.data);
   })
