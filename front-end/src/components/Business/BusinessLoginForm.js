@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 import {
  Card,
  CardImg,
@@ -21,12 +21,12 @@ const Businessrequestin = props => {
  //set requestin event
  const brequestin = e => {
   e.preventDefault();
-  axios
-   .post("https://replate2.herokuapp.com//api/volunteers/requestin", requestin)
+  axiosWithAuth()
+   .post("/api/businesses/login", requestin)
    .then(res => {
-    console.request(res);
+    console.log(res);
     localStorage.setItem("token", res.data.token);
-    props.history.push("/business-home");
+    props.history.push("/api/businesses/login");
    });
  };
 
@@ -42,7 +42,7 @@ const Businessrequestin = props => {
   <div className="requestin-page">
    <Card>
     <CardBody>
-     <CardHeader tag="h3">Business requestin</CardHeader>
+     <CardHeader tag="h3">Business Login</CardHeader>
      <Form onSubmit={brequestin}>
       <FormGroup>
        <Label for="username" hidden>
@@ -68,7 +68,7 @@ const Businessrequestin = props => {
         onChange={handleChange}
        />
       </FormGroup>{" "}
-      <Button>request in</Button>
+      <Button>Log In</Button>
      </Form>
     </CardBody>
    </Card>

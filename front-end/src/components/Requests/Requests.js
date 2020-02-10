@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import RequestItem from "./RequestItem";
 import { getRequests } from "../../utils/actions";
 
-export const Requests = ({ request: { requests, loading }, getRequests }) => {
+export const Requests = ({ request: { requests }, getRequests }) => {
  useEffect(() => {
   getRequests();
   // eslint-disable-next-line
@@ -26,5 +26,7 @@ export const Requests = ({ request: { requests, loading }, getRequests }) => {
 const mapStateToProps = state => ({
  request: state.request
 });
+
+console.log(mapStateToProps);
 
 export default connect(mapStateToProps, { getRequests })(Requests);

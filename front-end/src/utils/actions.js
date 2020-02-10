@@ -1,6 +1,5 @@
 import {
  GET_REQUESTS,
- SET_LOADING,
  REQUESTS_ERROR,
  ADD_REQUEST,
  DELETE_REQUEST,
@@ -9,31 +8,31 @@ import {
  UPDATE_REQUEST,
  SEARCH_REQUESTS
 } from "./types";
+import axiosWithAuth from "./axiosWithAuth";
+import axios from "axios";
 
-export const getRequests = () => async dispatch => {
- try {
-  setLoading();
+export const getRequests = (res, err) => async dispatch => {
+ axios
+  .get("https://testapi.io/api/cd765/foodrequests")
+  .then(res => {
+   console.log(res.data);
+  })
+  .catch(err => console.log(err));
 
-  const res = await fetch("/requests");
-  const data = await res.json();
+ dispatch({
+  type: GET_REQUESTS,
+  payload: res.data
+ });
 
-  dispatch({
-   type: GET_REQUESTS,
-   payload: data
-  });
- } catch (err) {
-  dispatch({
-   type: REQUESTS_ERROR,
-   payload: err.response.statusText
-  });
- }
+ dispatch({
+  type: REQUESTS_ERROR,
+  payload: err.response
+ });
 };
 
 // Add(POST) new REQUEST
 export const addRequest = request => async dispatch => {
  try {
-  setLoading();
-
   const res = await fetch("/requests", {
    method: "POST",
    body: JSON.stringify(request),
@@ -48,22 +47,24 @@ export const addRequest = request => async dispatch => {
    payload: data
   });
  } catch (err) {
-  console.REQUEST(err.response.statusText);
+  console.REQUEST(err.response);
   dispatch({
    type: REQUESTS_ERROR,
-   payload: err.response.statusText
+   payload: err.response
   });
  }
 };
 
 // Delete REQUEST from server
-export const deleteRequest = id => async dispatch => {
+export const deleteRequest = (id, props) => async dispatch => {
  try {
-  setLoading();
-
-  await fetch(`/requests/${id}`, {
-   method: "DELETE"
-  });
+  axiosWithAuth()
+   .delete(`/api/foodrequests/:${id}`)
+   .then(res => {
+    console.log(res);
+    localStorage.setItem("token", res.data.token);
+    props.history.push("business/home");
+   });
 
   dispatch({
    type: DELETE_REQUEST,
@@ -72,7 +73,7 @@ export const deleteRequest = id => async dispatch => {
  } catch (err) {
   dispatch({
    type: REQUESTS_ERROR,
-   payload: err.response.statusText
+   payload: err.response
   });
  }
 };
@@ -80,8 +81,6 @@ export const deleteRequest = id => async dispatch => {
 // Update REQUEST on server
 export const updateRequest = request => async dispatch => {
  try {
-  setLoading();
-
   const res = await fetch(`/requests/${request.id}`, {
    method: "PUT",
    body: JSON.stringify(request),
@@ -98,7 +97,7 @@ export const updateRequest = request => async dispatch => {
  } catch (err) {
   dispatch({
    type: REQUESTS_ERROR,
-   payload: err.response.statusText
+   payload: err.response
   });
  }
 };
@@ -106,8 +105,6 @@ export const updateRequest = request => async dispatch => {
 // Search REQUESTs
 export const searchRequests = text => async dispatch => {
  try {
-  setLoading();
-
   const res = await fetch(`/requests?q=${text}`);
   const data = await res.json();
 
@@ -118,7 +115,7 @@ export const searchRequests = text => async dispatch => {
  } catch (err) {
   dispatch({
    type: REQUESTS_ERROR,
-   payload: err.response.statusText
+   payload: err.response
   });
  }
 };
@@ -135,12 +132,5 @@ export const setCurrent = request => {
 export const clearCurrent = () => {
  return {
   type: CLEAR_CURRENT
- };
-};
-
-// set loading to true
-export const setLoading = () => {
- return {
-  type: SET_LOADING
  };
 };

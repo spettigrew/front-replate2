@@ -21,8 +21,9 @@ const BusinessRegister = props => {
   axios
    .post("https://replate2.herokuapp.com/api/businesses/register", register)
    .then(res => {
-    console.request(res.data);
-    props.history.push("/api/businesses/register");
+    console.log(res.data);
+    console.log(props.history);
+    props.history.push("/businesses/login");
    })
    .catch(err => console.log(err));
  };

@@ -10,7 +10,7 @@ const VolunteerRegister = props => {
   username: "",
   password: "",
   name: "",
-  phone: ""
+  phone: 0
  });
 
  // set register
