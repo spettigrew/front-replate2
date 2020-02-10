@@ -42,4 +42,4 @@ function App() {
   </main>
  );
 }
-export default connect(null)(App);
+export default connect(null, {})(App);
