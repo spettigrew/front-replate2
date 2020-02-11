@@ -1,33 +1,32 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchRequests, deleteRequest } from "../../utils/actions";
-import RequestsCard from "../Requests/RequestsCard";
+import RequestItem from "./RequestItem";
+import { getRequests } from "../../utils/actions";
 
-function Requests(props) {
- useEffect(() => props.fetchRequests(), []);
+export const Requests = ({ request: { requests }, getRequests }) => {
+ useEffect(() => {
+  getRequests();
+  // eslint-disable-next-line
+ }, []);
+
  return (
-  (
-   <div>
-    <button onClick={props.fetchRequests}>Get Requests</button>
-    {props.isFetching && <h2>Loading Requests...</h2>}
-    {props.requests.length > 0 &&
-     props.requests.map(item => (
-      <RequestsCard item={item} deleteRequest={props.deleteRequest} />
-     ))}
-   </div>
-  ),
-  []
+  <ul className="collection with-header">
+   <li className="collection-header">
+    <h4 className="center">Food Requests</h4>
+   </li>
+   {requests.length === 0 ? (
+    <p className="center">No requests to show...</p>
+   ) : (
+    requests.map(request => <RequestItem request={request} key={request.id} />)
+   )}
+  </ul>
  );
-}
-
-const mapStateToProps = state => {
- return {
-  isFetching: state.isFetching,
-  error: state.error,
-  requests: state.requests
- };
 };
 
-export default connect(mapStateToProps, { fetchRequests, deleteRequest })(
- Requests
-);
+const mapStateToProps = state => ({
+ request: state.request
+});
+
+console.log(mapStateToProps);
+
+export default connect(mapStateToProps, { getRequests })(Requests);
