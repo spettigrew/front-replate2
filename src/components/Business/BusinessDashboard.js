@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Col, Row, Button, Form, FormGroup, Label, Input, Dropdown } from "reactstrap";
 import "../../css/AppBusinessRequest.css";
 import { connect } from 'react-redux';
 import axios from "axios"
@@ -49,6 +49,24 @@ const BusinessDashboard = props => {
       <Col md={6}>
        <FormGroup>
         <Label for="exampleType">Type</Label>
+
+               <Dropdown>
+                 <Dropdown.Toggle variant="success" id="dropdown-basic">
+                   Food Type
+                  </Dropdown.Toggle>
+
+                 <Dropdown.Menu>
+                   <Dropdown.Item href="#/action-1">Soup</Dropdown.Item>
+                   <Dropdown.Item href="#/action-2">Salad</Dropdown.Item>
+                   <Dropdown.Item href="#/action-3">Bread</Dropdown.Item>
+                   <Dropdown.Item href="#/action-4">Fruit/Vegetable</Dropdown.Item>
+                   <Dropdown.Item href="#/action-5">Side Dish</Dropdown.Item>
+                   <Dropdown.Item href="#/action-6">Entree/Main Dish</Dropdown.Item>
+                   <Dropdown.Item href="#/action-7">Dessert</Dropdown.Item>
+                   <Dropdown.Item href="#/action-8">Beverages</Dropdown.Item>
+                 </Dropdown.Menu>
+               </Dropdown>
+
         <Input
          type="text"
          name="type"
