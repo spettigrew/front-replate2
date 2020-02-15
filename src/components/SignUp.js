@@ -13,7 +13,7 @@ export default function SignUp() {
    <div className="business-signup">
     <h2>Business Sign-Up</h2>
     <Link to="/business/register">
-     <Button renderAs="button">
+     <Button renderas="button">
       <span>Sign-Up</span>
      </Button>
     </Link>
@@ -22,7 +22,7 @@ export default function SignUp() {
     <h2>Volunteer Sign-Up</h2>
 
     <Link to="/volunteer/register">
-     <Button renderAs="button">
+     <Button renderas="button">
       <span>Sign-Up</span>
      </Button>
     </Link>
@@ -34,7 +34,7 @@ export default function SignUp() {
     <h2>Business Login</h2>
 
     <Link to="/business/login">
-     <Button renderAs="button">
+     <Button renderas="button">
       <span>Login</span>
      </Button>
     </Link>
@@ -43,7 +43,7 @@ export default function SignUp() {
     <h2>Business Dashboard</h2>
 
     <Link to="/business">
-     <Button renderAs="button">
+     <Button renderas="button">
       <span>Business</span>
      </Button>
     </Link>
@@ -53,7 +53,7 @@ export default function SignUp() {
     <h2>Volunteer Login</h2>
 
     <Link to="/volunteer/login">
-     <Button renderAs="button">
+     <Button renderas="button">
       <span>Login</span>
      </Button>
     </Link>

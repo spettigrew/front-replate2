@@ -6,10 +6,10 @@ import {
  SET_CURRENT,
  CLEAR_CURRENT,
  UPDATE_REQUEST,
- SEARCH_REQUESTS
+ SEARCH_REQUESTS,
+ SET_BUSINESS_ID
 } from "./types";
 import axiosWithAuth from "./axiosWithAuth";
-import axios from "axios";
 
 export const getRequests = (res, err) => async dispatch => {
  axiosWithAuth()
@@ -134,3 +134,7 @@ export const clearCurrent = () => {
   type: CLEAR_CURRENT
  };
 };
+
+export const setUserId = id => dispatch => {
+  dispatch({ type: SET_BUSINESS_ID, payload: id })
+}

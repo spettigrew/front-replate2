@@ -27,6 +27,4 @@ const mapStateToProps = state => ({
  request: state.request
 });
 
-console.log(mapStateToProps);
-
 export default connect(mapStateToProps, { getRequests })(Requests);

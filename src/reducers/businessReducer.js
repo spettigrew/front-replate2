@@ -2,7 +2,8 @@ import {
  GET_REQUESTS,
  ADD_REQUEST,
  DELETE_REQUEST,
- UPDATE_REQUEST
+ UPDATE_REQUEST,
+ SET_BUSINESS_ID
 } from "../utils/types";
 
 const initialState = {
@@ -11,7 +12,8 @@ const initialState = {
  name: "",
  address: "",
  phone: "",
- email: ""
+ email: "",
+ business_id: ""
 };
 
 export default (state = initialState, action) => {
@@ -38,6 +40,11 @@ export default (state = initialState, action) => {
      request.id === action.payload.id ? action.payload : request
     )
    };
+    case SET_BUSINESS_ID:
+      return {
+        ...state,
+        business_id: action.payload
+      }
   default:
    return state;
  }

@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import {
  Card,
- CardImg,
- CardText,
  CardBody,
- CardTitle,
- CardSubtitle,
  CardHeader
 } from "reactstrap";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";

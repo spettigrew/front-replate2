@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./css/App.css";
 import BusinessLoginForm from "./components/Business/BusinessLoginForm";
 import VolunteerLoginForm from "./components/Volunteer/VolunteerLoginForm";
@@ -7,11 +7,26 @@ import VolunteerRegisterApp from "./components/Volunteer/VolunteerRegisterApp";
 import BusinessDashboard from "./components/Business/BusinessDashboard";
 import VolunteerDashboard from "./components/Volunteer/VolunteerDashboard";
 import Requests from "./components/Requests/Requests";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import PrivateRoute from "./utils/PrivateRoute";
+import decode from 'jwt-decode';
+import { setUserId } from './utils/actions';
 import { connect } from "react-redux";
-function App() {
+
+function App({ setUserId, business_id }) {
+
+  useEffect(() => {
+    if (business_id === '' && localStorage.getItem('token')) {
+      const token = localStorage.getItem('token')
+      const { subject } = decode(token)
+
+      setUserId(subject)
+    }
+  })
+
+  console.log(business_id)
+
  return (
   <main>
    <nav>
@@ -42,4 +57,11 @@ function App() {
   </main>
  );
 }
-export default connect(null, {})(App);
+
+const mapStateToProps = ({ business: businessReducer }) => ({
+  business_id: businessReducer.business_id
+})
+
+console.log(mapStateToProps)
+
+export default connect(mapStateToProps, { setUserId })(withRouter(App));

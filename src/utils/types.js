@@ -9,3 +9,4 @@ export const REQUESTS_ERROR = "REQUESTS_ERROR";
 export const SEARCH_REQUESTS = "SEARCH_REQUESTS";
 export const GET_TECHS = "GET_TECHS";
 export const ADD_TECH = "ADD_TECH";
+export const SET_BUSINESS_ID = "SET_BUSINESS_ID"

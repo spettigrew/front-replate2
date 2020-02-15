@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../../css/AppBusinessRequest.css";
-// import axiosWithAuth from "../../utils/axiosWithAuth"
+import { connect } from 'react-redux';
 import axios from "axios"
 
 const BusinessDashboard = props => {
+  console.log(props.business_id)
  // initialState
  const [requestAdd, setRequestAdd] = useState({
   id: "",
@@ -13,15 +14,17 @@ const BusinessDashboard = props => {
   pickup_time: Date.now(),
   description: "describe food to be picked up.",
   completed: false,
-  business_id: "",
+  business_id: props.business_id,
   volunteer_id: ""
  });
+
+ console.log(requestAdd.business_id)
 
  // add request
  const newRequestAdd = e => {
   e.preventDefault();
   axios
-   .post("https://replate2.herokuapp.com/api/foodRequest/", requestAdd)
+   .post("https://replate2.herokuapp.com/api/foodRequest/", { business_id: props.business_id, ...requestAdd })
    .then(res => {
     console.log(res.data)
    })
@@ -108,4 +111,9 @@ const BusinessDashboard = props => {
   </div>
  );
 };
-export default BusinessDashboard;
+
+const mapStateToProps = ({ business: businessReducer }) => ({
+    business_id: businessReducer.business_id
+})
+
+export default connect(mapStateToProps, {})(BusinessDashboard);
