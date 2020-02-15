@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 import {
  Card,
  CardImg,
@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-const Volunteerrequestin = props => {
+const Businessrequestin = props => {
  //set local state
  const [requestin, setrequestin] = useState({
   username: "",
@@ -19,14 +19,13 @@ const Volunteerrequestin = props => {
  });
 
  //set requestin event
- const vrequestin = e => {
+ const brequestin = e => {
   e.preventDefault();
-  axios
-   .post("https://replate2.herokuapp.com//api/volunteers/requestin", requestin)
+  axiosWithAuth()
+   .post("/api/businesses/login", requestin)
    .then(res => {
-    console.request(res);
+    console.log(res);
     localStorage.setItem("token", res.data.token);
-    props.history.push("/volunteer-home");
    });
  };
 
@@ -42,8 +41,8 @@ const Volunteerrequestin = props => {
   <div className="requestin-page">
    <Card>
     <CardBody>
-     <CardHeader tag="h3">Volunteer Login</CardHeader>
-     <Form onSubmit={vrequestin}>
+     <CardHeader tag="h3">Business Login</CardHeader>
+     <Form onSubmit={brequestin}>
       <FormGroup>
        <Label for="username" hidden>
         Username{" "}
@@ -68,7 +67,7 @@ const Volunteerrequestin = props => {
         onChange={handleChange}
        />
       </FormGroup>{" "}
-      <Button>request in</Button>
+      <Button>Log In</Button>
      </Form>
     </CardBody>
    </Card>
@@ -76,4 +75,4 @@ const Volunteerrequestin = props => {
  );
 };
 
-export default Volunteerrequestin;
+export default Businessrequestin;

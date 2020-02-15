@@ -40,6 +40,16 @@ export default function SignUp() {
     </Link>
    </div>
    <div className="volunteer-login">
+    <h2>Business Dashboard</h2>
+
+    <Link to="/business">
+     <Button renderAs="button">
+      <span>Business</span>
+     </Button>
+    </Link>
+   </div>
+
+   <div className="volunteer-login">
     <h2>Volunteer Login</h2>
 
     <Link to="/volunteer/login">

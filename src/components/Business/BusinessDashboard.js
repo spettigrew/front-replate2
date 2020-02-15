@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../../css/AppBusinessRequest.css";
-import axios from "axios";
+// import axiosWithAuth from "../../utils/axiosWithAuth"
+import axios from "axios"
 
 const BusinessDashboard = props => {
  // initialState
@@ -20,11 +21,9 @@ const BusinessDashboard = props => {
  const newRequestAdd = e => {
   e.preventDefault();
   axios
-   .post("https://testapi.io/api/cd765/foodrequests", requestAdd)
+   .post("https://replate2.herokuapp.com/api/foodRequest/", requestAdd)
    .then(res => {
-    console.log(res.data);
-    console.log(props.history);
-    props.history.push("/business/home");
+    console.log(res.data)
    })
    .catch(err => console.log(err));
  };

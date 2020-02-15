@@ -20,7 +20,7 @@ function App() {
    </nav>
    <BrowserRouter>
     <Switch>
-     <Route path="/home" render={props => <SignUp />} />
+     <Route exact path="/" render={props => <SignUp />} />
      <Route
       path="/business/register"
       render={props => <BusinessRegisterApp />}
@@ -32,8 +32,8 @@ function App() {
      <Route path="/volunteer/login" render={props => <VolunteerLoginForm />} />
      <Route path="/volunteer/home" render={props => <VolunteerDashboard />} />
      <Route path="/business/login" render={props => <BusinessLoginForm />} />
-     <PrivateRoute
-      path="/business/home"
+     <Route
+      path="/business"
       render={props => <BusinessDashboard />}
      />
      <PrivateRoute path="/requests" render={props => <Requests />} />
