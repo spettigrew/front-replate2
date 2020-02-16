@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Row, Button, Form, FormGroup, Label, Input, Dropdown } from "reactstrap";
+import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../../css/AppBusinessRequest.css";
 import { connect } from 'react-redux';
 import axios from "axios"
@@ -48,37 +48,24 @@ const BusinessDashboard = props => {
      <Row form>
       <Col md={6}>
        <FormGroup>
-        <Label for="exampleType">Type</Label>
+        <Label for="exampleType">Type of Food</Label>
 
-               <Dropdown>
-                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-                   Food Type
-                  </Dropdown.Toggle>
+              <select id="types_food">
+                 <option value="soup">Soup</option>
+                 <option value="salad">Salad</option>
+                 <option value="bread">Bread</option>
+                 <option value="fruit_vegetable">Fruit/Vegetable</option>
+                 <option value="side">Side Dish</option>
+                 <option value="entree">Entree/Main Dish</option>
+                 <option value="dessert">Dessert</option>
+                 <option value="beverage">Beverage</option>
+               </select>
 
-                 <Dropdown.Menu>
-                   <Dropdown.Item href="#/action-1">Soup</Dropdown.Item>
-                   <Dropdown.Item href="#/action-2">Salad</Dropdown.Item>
-                   <Dropdown.Item href="#/action-3">Bread</Dropdown.Item>
-                   <Dropdown.Item href="#/action-4">Fruit/Vegetable</Dropdown.Item>
-                   <Dropdown.Item href="#/action-5">Side Dish</Dropdown.Item>
-                   <Dropdown.Item href="#/action-6">Entree/Main Dish</Dropdown.Item>
-                   <Dropdown.Item href="#/action-7">Dessert</Dropdown.Item>
-                   <Dropdown.Item href="#/action-8">Beverages</Dropdown.Item>
-                 </Dropdown.Menu>
-               </Dropdown>
-
-        <Input
-         type="text"
-         name="type"
-         id="type"
-         placeholder="type"
-         onChange={handleChange}
-        />
        </FormGroup>
       </Col>
      </Row>
      <FormGroup>
-      <Label for="examplePhone">Description</Label>
+      <Label for="exampleDescription">Description</Label>
       <Input
        type="textarea"
        name="description"
@@ -98,7 +85,7 @@ const BusinessDashboard = props => {
       />
      </FormGroup>
      <FormGroup>
-      <Label for="exampleComplete">Servings</Label>
+      <Label for="exampleServings">Servings</Label>
       <Input
        type="text"
        name="servings"
