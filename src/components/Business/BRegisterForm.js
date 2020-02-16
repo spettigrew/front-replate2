@@ -92,7 +92,7 @@ const BusinessRegister = props => {
       />
      </FormGroup>
      <FormGroup>
-      <Label for="examplePhone">Address</Label>
+      <Label for="exampleAddress">Address</Label>
       <Input
        type="text"
        name="address"
@@ -102,7 +102,7 @@ const BusinessRegister = props => {
       />
      </FormGroup>
      <FormGroup>
-      <Label for="examplePhone">Email</Label>
+      <Label for="exampleEmail">Email</Label>
       <Input
        type="email"
        name="email"
