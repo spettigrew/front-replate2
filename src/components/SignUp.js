@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
+
+
 export default function SignUp() {
+
+    // const signOut = () => {
+    //     localStorage.removeItem("token")
+    // }
+
+    // <Link to="/login" onClick={() => signOut()}> Logout </Link>
+
  return (
   <div className="signup-wrapper">
    <div className="replate">
@@ -58,6 +67,7 @@ export default function SignUp() {
      </Button>
     </Link>
    </div>
+
    <footer>Copyright Replate @ 2020</footer>
   </div>
  );
